@@ -9,7 +9,6 @@ const auth = async (req, res, next) => {
       token = req.query.token;
     } else if (req.body.token !== undefined) {
       token = req.body.token;
-      console.log("token: " + token);
     } else {
       token = req.header("Authorization").replace("Bearer ", "");
     }

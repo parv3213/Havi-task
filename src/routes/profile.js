@@ -15,7 +15,6 @@ router.get("/user/profile", auth, async (req, res) => {
   allUsers.forEach((user) => {
     admins.push(user.email);
   });
-  console.log("allUsers", allUsers);
   res.render("pages/profile", { list, token: req.token, admins });
 });
 
