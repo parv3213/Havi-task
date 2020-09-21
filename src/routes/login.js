@@ -10,8 +10,7 @@ router.post("/login", async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password);
     const token = await user.generateAuthToken();
-    res.send({ token });
-    // res.redirect("/users");
+    res.redirect("/user/profile?token=" + token);
   } catch (e) {
     res.status(404).render("pages/error", { e: e.message });
   }

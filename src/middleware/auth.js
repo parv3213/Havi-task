@@ -4,7 +4,13 @@ const jwtKey = process.env.JWT_KEY;
 
 const auth = async (req, res, next) => {
   try {
-    const token = req.header("Authorization").replace("Bearer ", "");
+    let token;
+    if (req.query.token !== undefined) {
+      token = req.query.token;
+      console.log(token);
+    } else {
+      token = req.header("Authorization").replace("Bearer ", "");
+    }
     const decoded = jwt.verify(token, jwtKey);
     const user = await User.findOne({ _id: decoded._id, "tokens.token": token });
     if (!user) throw new Error("User does not exists");

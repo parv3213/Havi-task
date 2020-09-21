@@ -12,7 +12,7 @@ router.post("/signup", async (req, res) => {
     if (user) throw new Error("Email Id already exists");
     user = new User(req.body);
     const token = await user.generateAuthToken();
-    res.status(201).send({ message: "Signin successful", user, token });
+    res.redirect("/user/profile?token=" + token);
   } catch (e) {
     res.status(404).render("pages/error", { e: e.message });
   }

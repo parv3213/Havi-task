@@ -1,6 +1,7 @@
 body {
-  background: grey;
+  background-color: #1e2022;
   margin: 0;
+  color: white;
 }
 
 /*  */
@@ -10,10 +11,11 @@ body {
   position: relative;
   background-color: #1e2022;
 }
+
 /* BODY */
 #body {
   padding-bottom: 100px;
-  color: #f0f5f9;
+  color: #1e2022;
 }
 
 .signupBox {
@@ -96,4 +98,5 @@ body {
 }
 h1 {
   margin: 0;
+  color: white;
 }
