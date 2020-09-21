@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <%- include("../partials/head.ejs") -%>
+</head>
+
+<body>
+  <div id="container">
+    <div id="body">
+      <%- include("../partials/navbar.ejs")  %>
+      <form class="signupBox" method="POST" action="/login">
+
+        <h1 class="h3 mb-3 mx-auto text-center">Login</h1>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" id="inputPassword" class="form-control mb-3" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+
+      </form>
+    </div>
+    <%- include("../partials/footer.ejs")  %>
+  </div>
+</body>
+
+</html>

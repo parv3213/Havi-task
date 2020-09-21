@@ -1,0 +1,17 @@
+const express = require("express");
+const auth = require("../middleware/auth");
+const router = new express.Router();
+
+router.get("/", (req, res) => {
+  res.render("pages/index.ejs");
+});
+
+// router.post("/", (req, res) => {
+// 	res.redirect(`/?year=${req.body.year}`);
+// });
+
+router.post("/", auth, (req, res) => {
+  res.send({ message: "JWT Success!", user: req.user, token: req.token });
+});
+
+module.exports = router;

@@ -1,0 +1,99 @@
+body {
+  background: grey;
+  margin: 0;
+}
+
+/*  */
+
+#container {
+  min-height: 100%;
+  position: relative;
+  background-color: #1e2022;
+}
+/* BODY */
+#body {
+  padding-bottom: 100px;
+  color: #f0f5f9;
+}
+
+.signupBox {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 35%;
+  max-width: 400px;
+}
+
+.form-section .form-control {
+  display: inline;
+}
+
+/* --------- Header --------- */
+.header-top a:hover {
+  text-decoration: none;
+  color: #e16428;
+}
+.header-top {
+  width: 100%;
+  height: 2rem;
+  font-size: 0.75rem;
+  color: #112d4e;
+  background-color: #dbe2ef;
+}
+
+.header-top .row.alignment {
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 2rem;
+}
+
+.header-top .col.alignment {
+  text-align: right;
+}
+
+/* --------- NavBar --------- */
+#nav.color {
+  background-color: #112d4e;
+  color: #f9f7f7;
+}
+
+#nav .heading {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.a-tag {
+  padding: 1rem 2rem;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #dbe2ef;
+  color: #40514e;
+  text-align: center;
+  padding: 1rem 0rem;
+}
+
+/* Error page */
+.jumbotron {
+  background-color: #1e2022;
+}
+
+/* Universal */
+html,
+body {
+  background-color: #f9f7f7;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin: 0;
+}
