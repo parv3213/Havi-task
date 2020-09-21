@@ -7,7 +7,9 @@ const auth = async (req, res, next) => {
     let token;
     if (req.query.token !== undefined) {
       token = req.query.token;
-      console.log(token);
+    } else if (req.body.token !== undefined) {
+      token = req.body.token;
+      console.log("token: " + token);
     } else {
       token = req.header("Authorization").replace("Bearer ", "");
     }
@@ -18,7 +20,7 @@ const auth = async (req, res, next) => {
     req.user = user;
     next();
   } catch (e) {
-    res.status(404).render("pages/error", { e: "Invalid token" });
+    res.status(404).render("pages/error", { e: e.message });
   }
 };
 

@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Login</title>
+    <%- include("../partials/head.ejs") -%>
+  </head>
 
-<head>
-  <title>Login</title>
-  <%- include("../partials/head.ejs") -%>
-</head>
-
-<body>
-  <div id="container">
-    <div id="body">
-      <%- include("../partials/navbar.ejs")  %>
-      <div class="mx-5 my-5">
-        <h1 class="h3">Update your information</h1>
-        <!-- Name -->
-        <form action="/user/profile" method="POST" class="">
-          <div class="form-section py-3 px-3">
-            <label for="inputName" class="h5 mr-3">Full Name:</label>
-            <input type="text" name="name" id="inputName" placeholder="Full Name" class="form-control w-25 h-25">
-            <!-- Year -->
-            <!-- //TODO make it selection -->
-            <div class="d-inline mx-5">
-              <label for="inputYear" class="h5 mr-3">Year:</label>
-              <input type="text" name="year" id="inputYear" placeholder="Year" class="form-control w-25 h-25">
-            </div>
+  <body>
+    <div id="container">
+      <div id="body">
+        <%- include("../partials/navbar.ejs") %>
+        <div class="mx-5 my-5">
+          <h1 class="h3">List Creator</h1>
+          <form action="/user/profile" method="POST" class="">
+            <input
+              type="textarea"
+              name="listData"
+              id="listData"
+              placeholder="Input list details"
+              class="form-control w-75 h-50 ml-3"
+            />
+            <input type="hidden" name="token" value=<%= token %> >
+            <button class="btn btn-outline-light ml-3 my-3 px-3" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="row">
+          <div style="color: white" class="ml-5 col">
+            <h2>List of logs</h2>
+            <ul>
+              <% list.forEach((listItem) => { %>
+              <li><%= listItem %></li>
+              <% }); %>
+            </ul>
           </div>
-          <!-- Password -->
-          <!-- //TODO add dom js -->
-          <div class="form-section py-3 px-3">
-            <label for="inputPassword" class="h5 mr-3">New Password:</label>
-            <input type="text" name="password" id="inputPassword" placeholder="New Password" class="form-control w-25 h-25">
+          <div style="color: white" class="ml-3 mr-5 col">
+            <h2>Grid of Admins</h2>
+            <ul>
+              <% admins.forEach((admin) => { %>
+              <li><%= admin %></li>
+              <% }); %>
+            </ul>
           </div>
-          <button class="btn btn-outline-light ml-3 my-3 px-3" type="submit">Submit</button>
-        </form>
+        </div>
+        
       </div>
+      <%- include("../partials/footer.ejs") %>
     </div>
-    <%- include("../partials/footer.ejs")  %>
-  </div>
-</body>
-
+  </body>
 </html>

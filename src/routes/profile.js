@@ -4,24 +4,26 @@ const User = require("../models/user");
 const router = new express.Router();
 
 router.get("/user/profile", auth, async (req, res) => {
-  res.render("pages/profile.ejs");
+  const list = [];
+  req.user.list.forEach((listItem) => {
+    if (listItem !== null) {
+      list.push(listItem);
+    }
+  });
+  const admins = [];
+  const allUsers = await User.find({});
+  allUsers.forEach((user) => {
+    admins.push(user.email);
+  });
+  console.log("allUsers", allUsers);
+  res.render("pages/profile", { list, token: req.token, admins });
 });
 
 router.post("/user/profile", auth, async (req, res) => {
   try {
-    const userChange = {
-      name: req.body.name,
-      year: Number(req.body.year),
-      password: req.body.password,
-    };
-    const user = req.user;
-    Object.keys(userChange).forEach((key) => {
-      if (userChange[key] !== undefined) {
-        user[key] = userChange[key];
-      }
-    });
-    await user.save();
-    res.send({ user: user });
+    req.user.list.push(req.body.listData);
+    await req.user.save();
+    res.redirect("/user/profile?token=" + req.token);
   } catch (e) {
     res.status(400).send(e.message);
   }
