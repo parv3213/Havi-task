@@ -10,7 +10,6 @@ const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
 const rootRoute = require("./routes/root");
 const profileRoute = require("./routes/profile");
-const userRoute = require("./routes/users");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,7 +22,6 @@ app.use(signupRoute);
 app.use(loginRoute);
 app.use(rootRoute);
 app.use(profileRoute);
-app.use(userRoute);
 
 // App connection
 app.listen(port, () => {
